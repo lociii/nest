@@ -229,13 +229,14 @@ h4:after {
     padding: 25px 0 55px 0;
 }
 .header-title {
-    font-size: 28px;
+    font-size: 36px;
     color: #fff;
-    font-weight: 700;
+    font-weight: 800;
 }
 .header-date {
     margin-top: 15px;
-    font-size: 12px;
+    font-size: 18px;
+    font-weight: 500;
     color: #fff;
     opacity: 0.8;
 

@@ -32,10 +32,24 @@
     <div class="archive-container">
         <div class="container content archive">
             <h2><a href="{{ SITEURL }}/{{ articles_page.url }}">{{ NEST_INDEX_CONTENT_TITLE }} {% if articles_page.has_previous() %}<small>- page {{ articles_page.number }}</small>{% endif %}</a></h2>
-            <dl class="dl-horizontal">
+            <dl>
                 {% for article in articles_page.object_list %}
-                <dt>{{ article.locale_date}}</dt>
-                <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+                <p>
+                    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+                </p>
+                <p>
+                    <dt>{{ article.locale_date}}</dt>
+                </p>
+                {% if NEST_INDEX_SHOW_EXCERPT %}
+                    <p>
+                        {% if article.has_summary %}
+                            {{ article.summary }}
+                        {% elif article.summary %}
+                            {{ article.summary|striptags|truncate(250, true) }}
+                        {% endif %}
+                        <hr>
+                    </p>
+                {% endif %}
                 {% endfor %}
             </dl>
         </div>
